@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "X Addons",
-    "description": "Add features to X. Currently supports adding personalized labels to user profiles, helping you remember the people with whom you interact.",
+    "description": "Add features to X. Currently supports adding labels to user profiles, helping you remember the people with whom you interact.",
     "version": "0.0.1",
     "icons": {
         "16": "/assets/xa-icon-16.png",
