@@ -10,8 +10,18 @@ function insertLabel() {
         const existingLabel = usernameElement.querySelector('.userLabel');
         
         // Get username from href attribute
-        const usernameLink = usernameElement.querySelector('a[href^="/"]');
-        const username = usernameLink ? usernameLink.getAttribute('href').substring(1) : null;
+        const hostname = window.location.hostname;
+
+        let username;
+        if (hostname === "tweetdeck.twitter.com") {
+          // Logic for TweetDeck
+          const usernameLink = usernameElement.querySelector('a[href^="https://twitter.com/"]');
+          username = usernameLink ? new URL(usernameLink.getAttribute('href')).pathname.substring(1) : null;
+        } else {
+          // Logic for all other Twitter domains
+          const usernameLink = usernameElement.querySelector('a[href^="/"]');
+          username = usernameLink ? usernameLink.getAttribute('href').substring(1) : null;
+        }
         
         // Retrieve label for username from local storage
         const label = localStorage.getItem(username) || '';
